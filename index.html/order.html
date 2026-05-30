@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Now - Fluxinity Web</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body class="order-page" style="opacity: 0; transition: opacity 0.4s ease;">
+    <script>
+        (function() {
+            function revealPage() {
+                document.body.style.opacity = '1';
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', revealPage, { once: true });
+            } else {
+                revealPage();
+            }
+            window.addEventListener('load', revealPage, { once: true });
+            setTimeout(revealPage, 300);
+        })();
+    </script>
+    <!-- Mouse trail / blue dot cursor -->
+    <canvas id="trail-canvas" aria-hidden="true"></canvas>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <a href="index.html" class="logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" width="200" height="40" class="logo-img">
+                            <defs>
+                                <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#67e8f9;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#0891b2;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <text x="10" y="28" font-family="Poppins, sans-serif" font-size="18" font-weight="700" fill="#f8fafc">Fluxinity</text>
+                            <text x="95" y="28" font-family="Poppins, sans-serif" font-size="18" font-weight="700" fill="url(#logoGradient)">Web</text>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Order Section -->
+    <section class="order-section">
+        <div class="container">
+            <div class="order-container">
+                <div class="order-header">
+                    <h2 class="section-title">Start Your Journey</h2>
+                    <p class="section-subtitle">Fill out the form below to get started with your project</p>
+                </div>
+                <form id="orderForm" class="order-form">
+                    <div class="form-section">
+                        <h3>Service Selection</h3>
+                        <div class="service-options">
+                            <label class="service-option">
+                                <input type="radio" name="service" value="website" checked>
+                                <div class="option-card">
+                                    <span class="option-icon">🌐</span>
+                                    <div class="option-details">
+                                        <h4>Website Development</h4>
+                                        <p>Modern, responsive websites</p>
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="service-option">
+                                <input type="radio" name="service" value="creative">
+                                <div class="option-card">
+                                    <span class="option-icon">🎨</span>
+                                    <div class="option-details">
+                                        <h4>Creative Services</h4>
+                                        <p>Banner creation, Photo editing</p>
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="service-option">
+                                <input type="radio" name="service" value="ads">
+                                <div class="option-card">
+                                    <span class="option-icon">🎬</span>
+                                    <div class="option-details">
+                                        <h4>Advertisement</h4>
+                                        <p>Better ad campaigns and marketing</p>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Project Details</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="FullName">Full Name</label>
+                                <input type="text" id="FullName" name="FullName" required autocomplete="name" placeholder="Enter your Full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="timeline">Timeline </label>
+                                <select id="timeline" name="timeline" required autocomplete="off">
+                                    <option value="">Select timeline</option>
+                                    
+                                    <option value="standard">Standard (2-3 days)</option>
+                                    <option value="flexible">Flexible (1-2 weeks)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@gmail.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="company">Company (Optional)</label>
+                                <input type="text" id="company" name="company" autocomplete="organization" placeholder="Enter your company name" list="company-list">
+                                <datalist id="company-list">
+                                    <option value="Google">
+                                    <option value="Microsoft">
+                                    <option value="Apple">
+                                    <option value="Amazon">
+                                    <option value="Facebook">
+                                    <option value="Tesla">
+                                    <option value="Netflix">
+                                    <option value="Adobe">
+                                    <option value="Spotify">
+                                    <option value="Uber">
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Project Description </label>
+                            <textarea id="description" name="description" rows="4" required placeholder="Describe your project requirements and goals..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="document.body.style.opacity='0'; setTimeout(function(){ window.location.href='index.html'; }, 400);">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit Order Request</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluxinity Web</title>
+    <meta name="description" content="Complete your work 10x faster with this site. Excellent services in website development, creative work and advertisement.">
+    <meta name="keywords" content="Studio. Excellent work in, website development, creative services and advertisement">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Non-blocking font load -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/logo.png">
+    <script src="script.js" defer></script>
+</head>
+<body style="opacity: 0; transition: opacity 0.4s ease;">
+    <!-- Page Loader -->
+    <div id="page-loader" aria-hidden="true">
+        <div class="loader-logo-text">
+            <span class="loader-text-white">Fluxinity</span><span class="loader-text-gap"> </span><span class="loader-text-gradient">Web</span>
+        </div>
+        <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+    </div>
+    <!-- Particle background -->
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+    <!-- Mouse trail -->
+    <canvas id="trail-canvas" aria-hidden="true"></canvas>
+    <!-- Page transition overlay -->
+    <div class="page-transition-overlay" id="pageTransitionOverlay"></div>
+    <script>
+        (function() {
+            function revealPage() {
+                document.body.style.opacity = '1';
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', revealPage, { once: true });
+            } else {
+                revealPage();
+            }
+            window.addEventListener('load', revealPage, { once: true });
+            setTimeout(revealPage, 300);
+        })();
+    </script>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo-box">
+                    <img src="./assets/images/flower-logo.png" alt="Fluxinity Web Logo" class="flower-logo" style="height: 40px; width: auto; mix-blend-mode: screen;" onerror="this.style.display='none'">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" width="200" height="40" class="logo-img">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#67e8f9;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#0891b2;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <text x="10" y="28" font-family="Poppins, sans-serif" font-size="18" font-weight="700" fill="#f8fafc">Fluxinity</text>
+                        <text x="95" y="28" font-family="Poppins, sans-serif" font-size="18" font-weight="700" fill="url(#logoGradient)">Web</text>
+                    </svg>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#process" class="nav-link">Process</a>
+                <a href="#testimonials" class="nav-link">Results</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <button class="cta-button nav-cta">Order Now</button>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-icon">⚡</span>
+                    <span>website: style mode</span>
+                </div>
+                <h1 class="hero-title glitch-text" data-text="Design your creativity with Smart Workflows">
+                    Design your creativity with 
+                    <span class="gradient-text">Smart Workflows</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Transform repetitive tasks into better work using our website.
+                </p>
+                <p class="hero-subtitle">
+                    Save 50% of time on manual work while scaling your works.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="200" data-suffix="+">200+</span>
+                        <span class="stat-label">Workflows</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="50" data-suffix="%">50%</span>
+                        <span class="stat-label">Time Saved</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="500" data-suffix="+">500+</span>
+                        <span class="stat-label">Happy clients</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <button class="cta-button primary magnetic-btn">Order Now</button>
+                    <button class="cta-button secondary magnetic-btn">View Services</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="cube-container">
+                    <div class="cube">
+                        <div class="face front"></div>
+                        <div class="face back"></div>
+                        <div class="face right"></div>
+                        <div class="face left"></div>
+                        <div class="face top"></div>
+                        <div class="face bottom"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="problems" id="problems">
+        <div class="container">
+            <h2 class="section-title">Struggling with other sites?</h2>
+            <p class="section-subtitle">Common business challenges that hold you back</p>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">🔄</div>
+                    <h3>Repetitive Tasks</h3>
+                    <p>Wasting hours on manual data entry and routine operations</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🐌</div>
+                    <h3>Slow Production</h3>
+                    <p>Delayed campaigns and content creation bottlenecks</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">💸</div>
+                    <h3>High Costs</h3>
+                    <p>Expensive costs and insufficient resources</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution" id="solution">
+        <div class="container">
+            <div class="solution-content">
+                <div class="solution-text">
+                    <h2 class="section-title">Better Results</h2>
+                    <p class="section-subtitle">
+                        Expertise meets efficiency — seamless workflows designed to deliver results that exceed expectations
+                    </p>
+                    <div class="solution-features">
+                        <div class="solution-feature">
+                            <span class="feature-icon">🚀</span>
+                            <div>
+                                <h4>Lightning Fast</h4>
+                                <p>Deploy works in days, not months</p>
+                            </div>
+                        </div>
+                        <div class="solution-feature">
+                            <span class="feature-icon">📈</span>
+                            <div>
+                                <h4>Scalable Growth</h4>
+                                <p>Handle 10x workload </p>
+                            </div>
+                        </div>
+                        <div class="solution-feature">
+                            <span class="feature-icon">💰</span>
+                            <div>
+                                <h4>Cost Effective</h4>
+                                <p>Reduce costs by free services</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="solution-media">
+                    <div class="media-showcase" data-owner-editable="true">
+                        <div class="media-showcase-item" data-type="image" data-src="./assets/images/banner.png" data-title="Project Showcase">
+                            <img src="./assets/images/banner.png" alt="Project Template Box" class="showcase-banner-img" loading="lazy" decoding="async">
+                            <button class="showcase-popup-btn" aria-label="View full image" onclick="event.stopPropagation();(function(){var o=document.createElement('div');o.style.cssText='position:fixed;inset:0;background:rgba(2,6,23,0.96);z-index:9999;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(10px);';var i=document.createElement('img');i.src='./assets/images/banner.png';i.style.cssText='max-width:92vw;max-height:88vh;border-radius:14px;box-shadow:0 0 60px rgba(103,232,249,0.2);';var c=document.createElement('button');c.innerHTML='✕';c.style.cssText='position:absolute;top:18px;right:18px;background:rgba(103,232,249,0.12);border:1.5px solid rgba(103,232,249,0.35);color:#67e8f9;width:38px;height:38px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;';c.onclick=function(e){e.stopPropagation();document.body.removeChild(o);};o.onclick=function(e){if(e.target===o)document.body.removeChild(o);};o.appendChild(i);o.appendChild(c);document.body.appendChild(o);})()">👁 View</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <h2 class="section-title">Transform Your work</h2>
+            <p class="section-subtitle">The benefits of Fluxinity web</p>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">⏰</div>
+                    <h3>Save Time</h3>
+                    <p>Reclaim hours daily by doing repetitive</p>
+                    <p>tasks and workflows</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💵</div>
+                    <h3>Increase Revenue</h3>
+                    <p>Scale operations and serve more customers without increasing costs</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈</div>
+                    <h3>Scale Operations</h3>
+                    <p>Handle 10x workload with the same team</p>
+                    <p>faster delivery and higher output</p>
+                </div>
+              </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof" id="social-proof">
+        <div class="container">
+            <div class="proof-stats">
+                <div class="stat-box">
+                    <span class="stat-number" data-count="1000" data-suffix="+">1000+</span>
+                    <span class="stat-label">Projects Delivered</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" data-count="50" data-suffix="%">50%</span>
+                    <span class="stat-label">Time Saved</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" data-count="200" data-suffix="+">200+</span>
+                    <span class="stat-label">Workflows</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" data-count="500" data-suffix="+">500+</span>
+                    <span class="stat-label">Happy Clients</span>
+                </div>
+            </div>
+            <div class="client-logos">
+                <div class="logo-placeholder">TechCorp</div>
+                <div class="logo-placeholder">DataFlow</div>
+                <div class="logo-placeholder">CloudBase</div>
+                <div class="logo-placeholder">Solutions</div>
+                <div class="logo-placeholder">Smart Systems</div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="services-header">
+                <h2 class="section-title">Complete smart Solutions</h2>
+                <p class="section-subtitle">Everything you need</p>
+            </div>
+            <div class="services-grid">
+                                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Game Development</h3>
+                    <p>Modern, responsive game built with a better approach</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>Content updates</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>custom built</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>Optimization</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Creative Services</h3>
+                    <p>Perfectly designed work including banners, edits, and visual content</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>video editing</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>youtube posts</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>instagram posts</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎬</div>
+                    <h3>Advertisement</h3>
+                    <p>Better ad campaigns and marketing work optimization</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>Competitor</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>custom design</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>redesignable</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="case-studies" id="case-studies">
+        <div class="container">
+            <h2 class="section-title">Final Results, Better Impact</h2>
+            <p class="section-subtitle">See how needs transformed with our solutions</p>
+            <div class="cases-grid">
+                <div class="case-card">
+                    <div class="case-metric">
+                        <span class="metric-value">50%</span>
+                        <span class="metric-label">Time Reduction</span>
+                    </div>
+                    <h3>E-commerce</h3>
+                    <p>Order processing reduced fulfillment time from hours to seconds</p>
+                </div>
+                <div class="case-card">
+                    <div class="case-metric">
+                        <span class="metric-value">300x</span>
+                        <span class="metric-label">Campaign Speed</span>
+                    </div>
+                    <h3>Marketing Workflow</h3>
+                    <p>Content creation accelerated campaign launches by 80%</p>
+                </div>
+                <div class="case-card">
+                    <div class="case-metric">
+                        <span class="metric-value">100%</span>
+                        <span class="metric-label">Cost Savings</span>
+                    </div>
+                    <h3>Data Processing</h3>
+                    <p>Data workflows cut operational costs while improving accuracy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <p class="section-subtitle">Real feedback from users we've helped</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Fluxinity Web transformed our operations. What used to take months now happens in days."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RS</div>
+                        <div class="author-info">
+                            <h4>Rahul sharma</h4>
+                            <span>⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The custom workflows they built for our marketing team are incredible. I have scaled my output faster."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PK</div>
+                        <div class="author-info">
+                            <h4>Priynka kumari</h4>
+                            <span>⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Best investment we've made. The automation pays for itself every month through efficiency gains."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">Ag</div>
+                        <div class="author-info">
+                            <h4>Amit gupta</h4>
+                            <span>⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <h2 class="section-title">How We Work</h2>
+            <p class="section-subtitle">Simple 4-step process to fulfill your needs</p>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-icon">📋</div>
+                    <h3>1. Consultation</h3>
+                    <p>We analyze your current work and identify opportunities</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">🎯</div>
+                    <h3>2. Design</h3>
+                    <p>Custom workflows designed specifically for your needs</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">⚡</div>
+                    <h3>3. Implementation</h3>
+                    <p>Seamless deployment with minimal disruption to you</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Everything you need to know about our automation services</p>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does web setup take?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Setup time varies based on complexity. Simple Workflows can be deployed in 2-3 days, while comprehensive workflow systems typically take 2-3 weeks. We'll provide a detailed timeline during consultation.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you provide support?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We offer comprehensive support including initial training, ongoing maintenance, and monitoring for critical workflows. Our team is always available to help optimize and troubleshoot your work.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is it customizable for my work?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! Every solution is tailored to your specific business needs. We analyze your current processes and design custom workflows that integrate seamlessly with your existing tools and systems.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What's the ROI timeline?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most clients see ROI within 3-6 months through time savings, reduced operational costs, and increased productivity. Some solutions pay for themselves in as little as 30 days.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta" id="final-cta">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-badge">
+                    <span class="badge-icon">🔥</span>
+                    <span>Limited Spots Available</span>
+                </div>
+                <h2 class="cta-title">Start Your Orders Today</h2>
+                <p class="cta-subtitle">
+                    book your free consultation and discover how much time and money you could save 
+                    
+                </p>
+                <div class="cta-urgency">
+                    <span class="urgency-text">⚡ Only few onboarding slots left this month</span>
+                </div>
+                <button class="cta-button large">Order Now</button>
+                <a href="./assets/download/fluxinity-web.zip" download="fluxinity-web.zip" class="cta-button secondary large" style="margin-top:1rem;">⬇ Download Files</a>
+                <p class="cta-note">• Fast strategy order • Better roadmap</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Popup -->
+    <div class="media-popup-overlay" id="mediaPopup">
+        <div class="media-popup-container">
+            <div class="media-popup-header">
+                <h3 id="mediaPopupTitle">Media</h3>
+                <button class="media-popup-close" id="mediaPopupClose">✕</button>
+            </div>
+            <div class="media-popup-body" id="mediaPopupBody">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                    <span class="logo-text">Fluxinity</span>
+                    <span class="logo-accent">Web</span>
+                    </div>
+                    <p>Modern Work</p>
+                    <p>partner-vinivex studio</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        
+                        <a href="#services">Website Development</a>
+                        <a href="#services">Creative Services</a>
+                        <a href="#services">Advertisement Solutions</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Facts</h4>
+                        
+                        <a href="#testimonials">Case Studies</a>
+                        <a href="#faq">FAQ</a>
+                        <a href="order.html">Contact</a>
+                        <a href="./assets/download/fluxinity-web.zip" download="fluxinity-web.zip">⬇ Download Files</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <a href="#">Google</a>
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p> 2026 Fluxinity Web. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of condition</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>
